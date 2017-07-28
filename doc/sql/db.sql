@@ -73,7 +73,8 @@ create table  t_wk_times
        TIME              DATETIME,
        COMMENT           VARCHAR(4000),
        creator           VARCHAR(4000),
-       createtime        DATETIME
+       createtime        DATETIME,
+       istimeout         INTEGER
 );
 alter  table t_wk_times
        add constraint PK_t_wk_times_id primary key (id);
