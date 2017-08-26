@@ -1,42 +1,42 @@
 /*
-警告: 字段名可能非法 - desc
+警告: 字段名可能非法 - DESCRIPTION
 警告: 字段名可能非法 - type
 警告: 字段名可能非法 - status
 警告: 字段名可能非法 - comment
 */
 create table  t_wk_projects
 (
-       id                VARCHAR(4000) not null,
-       name              VARCHAR(4000),
-       DESC              VARCHAR(4000),
+       id                VARCHAR(256) not null,
+       name              VARCHAR(256),
+       DESCRIPTION              VARCHAR(256),
        TYPE              INTEGER,
-       creator           VARCHAR(4000),
+       creator           VARCHAR(256),
        createdate        DATETIME,
        STATUS            INTEGER,
-       COMMENT           VARCHAR(4000)
+       COMMENT           VARCHAR(256)
 );
 alter  table t_wk_projects
        add constraint PK_t_wk_projects_id primary key (id);
 
 
 /*
-警告: 字段名可能非法 - desc
+警告: 字段名可能非法 - DESCRIPTION
 警告: 字段名可能非法 - status
 警告: 字段名可能非法 - comment
 */
 create table  t_wk_tasks
 (
-       id                VARCHAR(4000) not null,
-       pid               VARCHAR(4000),
-       title             VARCHAR(4000),
-       DESC              VARCHAR(4000),
+       id                VARCHAR(256) not null,
+       pid               VARCHAR(256),
+       title             VARCHAR(256),
+       DESCRIPTION              VARCHAR(256),
        STATUS            INTEGER,
-       creator           VARCHAR(4000),
+       creator           VARCHAR(256),
        createtime        DATETIME,
-       COMMENT           VARCHAR(4000),
-       planid            VARCHAR(4000),
-       owner             VARCHAR(4000),
-       typeid            VARCHAR(4000)
+       COMMENT           VARCHAR(256),
+       planid            VARCHAR(256),
+       owner             VARCHAR(256),
+       typeid            VARCHAR(256)
 );
 alter  table t_wk_tasks
        add constraint PK_t_wk_tasks_id primary key (id);
@@ -48,15 +48,15 @@ alter  table t_wk_tasks
 */
 create table  t_wk_tasktimes
 (
-       id                VARCHAR(4000) not null,
-       pid               VARCHAR(4000),
-       TYPE              VARCHAR(4000),
-       mintime           VARCHAR(4000),
-       maxtime           VARCHAR(4000),
+       id                VARCHAR(256) not null,
+       pid               VARCHAR(256),
+       TYPE              VARCHAR(256),
+       mintime           VARCHAR(256),
+       maxtime           VARCHAR(256),
        istimeout         INTEGER,
-       creator           VARCHAR(4000),
+       creator           VARCHAR(256),
        createtime        DATETIME,
-       COMMENT           VARCHAR(4000)
+       COMMENT           VARCHAR(256)
 );
 alter  table t_wk_tasktimes
        add constraint PK_t_wk_tasktimes_id primary key (id);
@@ -68,11 +68,11 @@ alter  table t_wk_tasktimes
 */
 create table  t_wk_times
 (
-       id                VARCHAR(4000) not null,
+       id                VARCHAR(256) not null,
        pid               INTEGER,
        TIME              DATETIME,
-       COMMENT           VARCHAR(4000),
-       creator           VARCHAR(4000),
+       COMMENT           VARCHAR(256),
+       creator           VARCHAR(256),
        createtime        DATETIME
 );
 alter  table t_wk_times
@@ -84,9 +84,9 @@ alter  table t_wk_times
 */
 create table  t_wk_task2proj
 (
-       id                VARCHAR(4000) not null,
-       pid               VARCHAR(4000),
-       tid               VARCHAR(4000),
+       id                VARCHAR(256) not null,
+       pid               VARCHAR(256),
+       tid               VARCHAR(256),
        STATUS            INTEGER
 );
 alter  table t_wk_task2proj
@@ -94,19 +94,19 @@ alter  table t_wk_task2proj
 
 
 /*
-警告: 字段名可能非法 - desc
+警告: 字段名可能非法 - DESCRIPTION
 警告: 字段名可能非法 - status
 警告: 字段名可能非法 - comment
 */
 create table  t_wk_plans
 (
-       id                VARCHAR(4000) not null,
-       name              VARCHAR(4000),
-       DESC              VARCHAR(4000),
-       creator           VARCHAR(4000),
+       id                VARCHAR(256) not null,
+       name              VARCHAR(256),
+       DESCRIPTION              VARCHAR(256),
+       creator           VARCHAR(256),
        createtime        DATETIME,
        STATUS            INTEGER,
-       COMMENT           VARCHAR(4000)
+       COMMENT           VARCHAR(256)
 );
 alter  table t_wk_plans
        add constraint PK_t_wk_plans_id primary key (id);
@@ -114,17 +114,17 @@ alter  table t_wk_plans
 
 /*
 警告: 字段名可能非法 - status
-警告: 字段名可能非法 - desc
+警告: 字段名可能非法 - DESCRIPTION
 警告: 字段名可能非法 - comment
 */
 create table  t_wk_depts
 (
-       id                VARCHAR(4000) not null,
+       id                VARCHAR(256) not null,
        pid               INTEGER,
        STATUS            INTEGER,
-       name              VARCHAR(4000),
-       DESC              VARCHAR(4000),
-       COMMENT           VARCHAR(4000)
+       name              VARCHAR(256),
+       DESCRIPTION              VARCHAR(256),
+       COMMENT           VARCHAR(256)
 );
 alter  table t_wk_depts
        add constraint PK_t_wk_depts_id primary key (id);
@@ -135,22 +135,22 @@ alter  table t_wk_depts
 */
 create table  t_wk_employees
 (
-       id                VARCHAR(4000) not null,
+       id                VARCHAR(256) not null,
        employid          INTEGER,
-       name              VARCHAR(4000),
+       name              VARCHAR(256),
        age               INTEGER,
-       tel               VARCHAR(4000),
-       email             VARCHAR(4000),
+       tel               VARCHAR(256),
+       email             VARCHAR(256),
        sex               DATETIME,
        STATUS            INTEGER,
-       deptid            VARCHAR(4000)
+       deptid            VARCHAR(256)
 );
 alter  table t_wk_employees
        add constraint PK_t_wk_employees_id primary key (id);
 
 
 /*
-警告: 字段名可能非法 - desc
+警告: 字段名可能非法 - DESCRIPTION
 警告: 字段名可能非法 - status
 警告: 字段名可能非法 - comment
 */
@@ -158,19 +158,19 @@ create table  t_wk_tasktypes
 (
        id                INTEGER not null,
        name              INTEGER,
-       DESC              VARCHAR(4000),
-       color             VARCHAR(4000),
+       DESCRIPTION              VARCHAR(256),
+       color             VARCHAR(256),
        ctype             INTEGER,
        cclore            INTEGER,
        STATUS            INTEGER,
-       COMMENT           VARCHAR(4000)
+       COMMENT           VARCHAR(256)
 );
 alter  table t_wk_tasktypes
        add constraint PK_t_wk_tasktypes_id primary key (id);
 
 
 /*
-警告: 字段名可能非法 - desc
+警告: 字段名可能非法 - DESCRIPTION
 警告: 字段名可能非法 - type
 警告: 字段名可能非法 - status
 警告: 字段名可能非法 - comment
@@ -178,7 +178,7 @@ alter  table t_wk_tasktypes
 
 
 /*
-警告: 字段名可能非法 - desc
+警告: 字段名可能非法 - DESCRIPTION
 警告: 字段名可能非法 - status
 警告: 字段名可能非法 - comment
 */
@@ -219,7 +219,7 @@ alter  table t_wk_task2proj
        references t_wk_tasks(id);
 
 /*
-警告: 字段名可能非法 - desc
+警告: 字段名可能非法 - DESCRIPTION
 警告: 字段名可能非法 - status
 警告: 字段名可能非法 - comment
 */
@@ -227,7 +227,7 @@ alter  table t_wk_task2proj
 
 /*
 警告: 字段名可能非法 - status
-警告: 字段名可能非法 - desc
+警告: 字段名可能非法 - DESCRIPTION
 警告: 字段名可能非法 - comment
 */
 
@@ -240,7 +240,7 @@ alter  table t_wk_employees
        references t_wk_depts(id);
 
 /*
-警告: 字段名可能非法 - desc
+警告: 字段名可能非法 - DESCRIPTION
 警告: 字段名可能非法 - status
 警告: 字段名可能非法 - comment
 */
