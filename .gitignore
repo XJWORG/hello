@@ -1,0 +1,13 @@
+/target
+/download
+/res
+/screenshot
+/test-output
+/logs
+*.xlsx
+/testng_test.xml
+/testng.xml
+/.classpath
+/conf/
+/.settings/
+/.project
