@@ -13,6 +13,10 @@
   <properties>  
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>  
       <org.springframework.version>4.2.6.RELEASE</org.springframework.version>
+      <org.junit.version>4.9</org.junit.version>
+      <org.hibernate.version>4.3.11.Final</org.hibernate.version>
+      <org.struts.version>2.3.32</org.struts.version>
+      <org.mysql.version>5.1.26</org.mysql.version>
   </properties>  
     
   
@@ -20,8 +24,14 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.9</version>
+      <version>${org.junit.version}</version>
       <scope>test</scope>
+    </dependency>
+    
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>${org.mysql.version}</version>
     </dependency>
     
     <!-- Spring 依赖 -->  
@@ -49,11 +59,19 @@
         <version>${org.springframework.version}</version>
      </dependency>
      
+    <!-- Hibernate 依赖 -->  
+     <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-core</artifactId>
+        <version>${org.hibernate.version}</version>
+     </dependency>
+     
+     
     <!-- Struts2 依赖 -->  
     <dependency>  
         <groupId>org.apache.struts</groupId>  
         <artifactId>struts2-core</artifactId>  
-        <version>2.3.32</version>  
+        <version>${org.struts.version}</version>  
     </dependency>  
       
     
