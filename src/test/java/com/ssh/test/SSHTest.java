@@ -3,6 +3,11 @@ package com.ssh.test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import com.shop.model.Category;
+import com.shop.service.CategoryService;
+import com.shop.service.impl.CategoryServiceImpl;
+
 import javax.annotation.Resource;
 import org.junit.Test;
 import java.util.Date;
@@ -21,4 +26,11 @@ public class SSHTest {
         System.out.println(date);  
         System.out.println(date);  
     } 
+    
+    @Test
+    public void hibernate(){
+    	CategoryService categoryService = new CategoryServiceImpl();
+    	Category category = new Category("男士fasion",true);
+    	categoryService.save(category);
+    }
 }  
