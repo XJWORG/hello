@@ -66,6 +66,24 @@
         <version>${org.springframework.version}</version>
      </dependency>
      
+     <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-jdbc</artifactId>
+        <version>${org.springframework.version}</version>
+     </dependency>
+     
+     <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-orm</artifactId>
+        <version>${org.springframework.version}</version>
+     </dependency>
+     
+     <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-tx</artifactId>
+        <version>${org.springframework.version}</version>
+     </dependency>
+     
     <!-- Hibernate 依赖 -->  
      <dependency>
         <groupId>org.hibernate</groupId>
@@ -73,6 +91,20 @@
         <version>${org.hibernate.version}</version>
      </dependency>
      
+     <!-- https://mvnrepository.com/artifact/org.hibernate/ejb3-persistence -->
+<!-- 	<dependency>
+	    <groupId>org.hibernate</groupId>
+	    <artifactId>ejb3-persistence</artifactId>
+	    <version>1.0.2.GA</version>
+	    <type>pom</type>
+	</dependency> -->
+     
+     <!-- https://mvnrepository.com/artifact/com.mchange/c3p0 -->
+	<dependency>
+	    <groupId>com.mchange</groupId>
+	    <artifactId>c3p0</artifactId>
+	    <version>0.9.5.2</version>
+	</dependency>
      
     <!-- Struts2 依赖 -->  
     <dependency>  
