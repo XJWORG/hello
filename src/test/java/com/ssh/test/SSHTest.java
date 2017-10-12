@@ -30,8 +30,10 @@ public class SSHTest {
     
     @Test
     public void hibernate(){
+        System.out.println("insert cecore");
     	CategoryService categoryService = new CategoryServiceImpl();
-    	Category category = new Category("男士fasion",true);
+        System.out.println("insert cecore2");
+    	Category category = new Category("男士fasion2",true);
     	categoryService.save(category);
     }
 

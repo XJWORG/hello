@@ -17,6 +17,7 @@ public class CategoryServiceImpl implements CategoryService {
 			session.getTransaction().begin();
 			session.save(category);
 			session.getTransaction().commit();
+			System.out.println("insert record !");
 		} catch(Exception e){
 			session.getTransaction().rollback();
 			throw new RuntimeException(e);
