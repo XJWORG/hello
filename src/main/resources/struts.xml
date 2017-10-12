@@ -22,4 +22,10 @@
         </action>  
     </package>  
       
+    <package name="shop" extends="struts-default">
+        <action name="category_*" class="com.shop.action.CategoryAction" method="{1}">
+            <result name="index">/index.jsp</result>
+        </action>
+    </package>  
+      
 </struts>  
