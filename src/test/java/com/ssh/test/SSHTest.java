@@ -32,9 +32,9 @@ public class SSHTest {
     public void hibernate(){
         System.out.println("insert cecore");
     	CategoryService categoryService = new CategoryServiceImpl();
-        System.out.println("insert cecore2");
     	Category category = new Category("男士fasion2",true);
     	categoryService.save(category);
+        System.out.println("insert cecore2");
     }
 
     @Test //测试Hibernate和Spring整合后

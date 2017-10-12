@@ -14,10 +14,11 @@ public class CategoryServiceImpl implements CategoryService {
 		// TODO Auto-generated method stub
 		Session session = HibernateSessionFactory.getSession();
 		try{
+            System.out.println("insert record start !");
 			session.getTransaction().begin();
 			session.save(category);
 			session.getTransaction().commit();
-			System.out.println("insert record !");
+			System.out.println("insert record  end!");
 		} catch(Exception e){
 			session.getTransaction().rollback();
 			throw new RuntimeException(e);
