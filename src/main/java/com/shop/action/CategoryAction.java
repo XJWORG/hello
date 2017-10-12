@@ -13,12 +13,12 @@ public class CategoryAction extends ActionSupport {
     public String update(){
         System.out.println("---struts update");
         System.out.println(categoryService);
-        return "index";
+        return "index2";
     }
     
     public String save(){
         System.out.println("---struts save");
         System.out.println(categoryService);
-        return "index";
+        return "index2";
     }
 }
