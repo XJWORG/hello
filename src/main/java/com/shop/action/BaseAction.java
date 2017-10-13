@@ -3,14 +3,18 @@ package com.shop.action;
 import java.lang.reflect.ParameterizedType;
 import java.util.Map;
 
+import javax.annotation.Resource;
+
 import org.apache.struts2.interceptor.ApplicationAware;
 import org.apache.struts2.interceptor.RequestAware;
 import org.apache.struts2.interceptor.SessionAware;
+import org.springframework.stereotype.Controller;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.shop.service.CategoryService;
 
+@Controller("baseAction")
 public class BaseAction<T> extends ActionSupport implements RequestAware, SessionAware, ApplicationAware, ModelDriven<T> {
 
 
@@ -19,13 +23,8 @@ public class BaseAction<T> extends ActionSupport implements RequestAware, Sessio
     protected Map<String ,Object> application;
     
     protected T model ;
-
+    @Resource
     protected CategoryService categoryService;
-
-
-    public void setCategoryService(CategoryService categoryService) {
-        this.categoryService = categoryService;
-    }
     
 	@Override
 	public void setApplication(Map<String, Object> application) {

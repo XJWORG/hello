@@ -3,16 +3,23 @@ package com.shop.service.impl;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.stereotype.Service;
 
 import com.shop.service.BaseService;
 
 @SuppressWarnings("unchecked")
+@Service("baseService")
+@Lazy(true)
 public class BaseServiceImpl<T> implements BaseService<T> {
     
     //clazz中存储了当前的操作类型，即泛型 T
     private Class clazz;
+    @Resource //放在属性上，就不会调用set方法，使用反射注进来，所以可以把set方法去掉
     private SessionFactory sessionFactory;
     
     public BaseServiceImpl(){
@@ -23,10 +30,6 @@ public class BaseServiceImpl<T> implements BaseService<T> {
     	ParameterizedType type = (ParameterizedType)this.getClass().getGenericSuperclass();
     	clazz = (Class)type.getActualTypeArguments()[0];
     }
-    
-	public void setSessionFactory(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
-	}
     
     protected Session getSession(){
     	return sessionFactory.getCurrentSession();
