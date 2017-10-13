@@ -10,13 +10,14 @@ import javax.persistence.Table;
 /**
  * Category entity. @author MyEclipse Persistence Tools
  */
-@Entity(name = "category")
+@Entity(name = "Category")  //或  @Entity  
 public class Category implements java.io.Serializable {
 
     // Fields
     private Integer id;
     private String type;
     private Boolean hot;
+    private Integer aid;
 
     // Constructors
     /** default constructor */
@@ -36,6 +37,13 @@ public class Category implements java.io.Serializable {
         this.hot = hot;
     }
 
+    /** full constructor */
+    public Category(String type, Boolean hot, Integer aid) {
+        this.type = type;
+        this.hot = hot;
+        this.aid = aid;
+    }
+    
     // Property accessors
     @Id
     @GeneratedValue
@@ -65,4 +73,14 @@ public class Category implements java.io.Serializable {
     public void setHot(Boolean hot) {
         this.hot = hot;
     }
+
+	@Column(name = "aid")
+	public Integer getAid() {
+		return this.aid;
+	}
+
+	public void setAid(Integer aid) {
+		this.aid = aid;
+	}
+
 }
