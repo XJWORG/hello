@@ -5,7 +5,7 @@ import com.shop.model.Category;
 import com.shop.service.CategoryService;
 
 public class CategoryAction extends ActionSupport {
-    private Category category;
+    private Category category = new Category();
     private CategoryService categoryService;
 
     public void setCategoryService(CategoryService categoryService) {
