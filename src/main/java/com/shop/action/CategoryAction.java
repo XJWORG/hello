@@ -11,31 +11,24 @@ import com.opensymphony.xwork2.ModelDriven;
 import com.shop.model.Category;
 import com.shop.service.CategoryService;
 
-public class CategoryAction extends BaseAction implements ModelDriven<Category> {
-    private Category category = new Category();
+public class CategoryAction extends BaseAction<Category> {
+
     private CategoryService categoryService;
 
-	@Override
-	public Category getModel() {
-		return category;
-	}  
 
     public void setCategoryService(CategoryService categoryService) {
         this.categoryService = categoryService;
     }
     
-    public Category getCategory(){
-        return this.category ;
-    }
     public String update(){
         System.out.println("---struts update ");
-        System.out.println(category);
-        categoryService.update(category);
+        System.out.println(model);
+        categoryService.update(model);
         return "index2";
     }
     
     public String save(){
-        categoryService.save(category);
+        categoryService.save(model);
         return "index2";
     }
 
