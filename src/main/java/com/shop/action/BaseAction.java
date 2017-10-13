@@ -9,6 +9,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
+import com.shop.service.CategoryService;
 
 public class BaseAction<T> extends ActionSupport implements RequestAware, SessionAware, ApplicationAware, ModelDriven<T> {
 
@@ -18,6 +19,13 @@ public class BaseAction<T> extends ActionSupport implements RequestAware, Sessio
     protected Map<String ,Object> application;
     
     protected T model ;
+
+    protected CategoryService categoryService;
+
+
+    public void setCategoryService(CategoryService categoryService) {
+        this.categoryService = categoryService;
+    }
     
 	@Override
 	public void setApplication(Map<String, Object> application) {

@@ -13,12 +13,6 @@ import com.shop.service.CategoryService;
 
 public class CategoryAction extends BaseAction<Category> {
 
-    private CategoryService categoryService;
-
-
-    public void setCategoryService(CategoryService categoryService) {
-        this.categoryService = categoryService;
-    }
     
     public String update(){
         System.out.println("---struts update ");
