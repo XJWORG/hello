@@ -3,7 +3,7 @@ import java.util.List;
 
 import com.shop.model.Category;
 
-public interface CategoryService {
+public interface CategoryService extends BaseService<Category>{
     /*保存*/
 	public void save( Category category ); 
 	/*更新*/

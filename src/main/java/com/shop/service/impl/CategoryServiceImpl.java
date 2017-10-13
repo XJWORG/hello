@@ -9,7 +9,7 @@ import com.shop.model.Category;
 import com.shop.service.CategoryService;
 import com.shop.utils.HibernateSessionFactory;
 
-public class CategoryServiceImpl implements CategoryService {
+public class CategoryServiceImpl extends BaseServiceImpl<Category> implements CategoryService {
 
 
     /*Spring和Hibernate整合后*/
