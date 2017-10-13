@@ -24,6 +24,11 @@
         <property name="categoryService" ref="categoryService"></property> <!-- 依赖上面已经配置好的categoryService -->
      </bean>
      
+     <!-- 泛型是不能实例化的，所以要家lazy-init属性 -->
+     <bean id="baseService" class="com.shop.service.impl.BaseServiceImpl" lazy-init="true">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+     </bean>
+     
      <!-- com.mchange.v2.c3p0.ComboPooledDataSource类在c3p0-0.9.5.1.jar包的com.mchange.v2.c3p0包中 -->
      <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <property name="driverClass" value="com.mysql.jdbc.Driver" />
