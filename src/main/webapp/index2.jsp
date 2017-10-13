@@ -10,6 +10,7 @@
     <!-- 下面两种写法都可以访问 -->
         <span></span>
         <a href="${pageContext.request.contextPath }/category_update.action?category.id=1&category.type=gga&category.hot=false">访问update</a>
+        <a href="${pageContext.request.contextPath }/category_update.action?id=1&type=gga&hot=false">访问update-modeldriven</a>
         <a href="category_save.action">访问save</a>
        <a href="category_save.action?id=4&type=haha&hot=true">测试ModelDriven</a>  
         

@@ -28,6 +28,12 @@
         <property name="categoryService" ref="categoryService"></property> <!-- 依赖上面已经配置好的categoryService -->
      </bean>
      
+     <!-- 如果是prototype类型，默认是使用时创建，不是启动时自动创建 -->  
+     <bean id="baseAction" class="com.shop.action.BaseAction" scope="prototype">
+        <property name="categoryService" ref="categoryService"></property>
+        <property name="AccountService" ref="accountService"></property>
+     </bean>
+     
      <!-- 泛型是不能实例化的，所以要家lazy-init属性 -->
      <bean id="baseService" class="com.shop.service.impl.BaseServiceImpl" lazy-init="true">
         <property name="sessionFactory" ref="sessionFactory"></property>
