@@ -24,6 +24,7 @@
         <property name="show_sql">true</property>
         
         <mapping class="com.shop.model.Category" />
+        <mapping class="com.shop.model.Account" />
 
 
     </session-factory>

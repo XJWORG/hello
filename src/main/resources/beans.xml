@@ -20,6 +20,10 @@
         <property name="sessionFactory" ref="sessionFactory" />
      </bean>
      
+     <bean id="accountService" class="com.shop.service.impl.AccountServiceImpl">
+        <property name="sessionFactory" ref="sessionFactory" />
+     </bean>
+     
      <bean id="categoryAction" class="com.shop.action.CategoryAction">
         <property name="categoryService" ref="categoryService"></property> <!-- 依赖上面已经配置好的categoryService -->
      </bean>
@@ -28,6 +32,9 @@
      <bean id="baseService" class="com.shop.service.impl.BaseServiceImpl" lazy-init="true">
         <property name="sessionFactory" ref="sessionFactory"></property>
      </bean>
+     
+     
+     
      
      <!-- com.mchange.v2.c3p0.ComboPooledDataSource类在c3p0-0.9.5.1.jar包的com.mchange.v2.c3p0包中 -->
      <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
