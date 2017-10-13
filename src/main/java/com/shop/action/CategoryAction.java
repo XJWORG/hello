@@ -10,7 +10,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.shop.model.Category;
 import com.shop.service.CategoryService;
 
-public class CategoryAction extends ActionSupport implements RequestAware,SessionAware,ApplicationAware {
+public class CategoryAction extends BaseAction implements RequestAware,SessionAware,ApplicationAware {
     private Category category = new Category();
     private CategoryService categoryService;
 
@@ -35,11 +35,6 @@ public class CategoryAction extends ActionSupport implements RequestAware,Sessio
         return "index2";
     }
 
-    private Map<String, Object> request;
-    private Map<String, Object> session;
-    private Map<String ,Object> application;
-    
-    
     /*我们知道，在Action中可以直接通过ActionContext.getContext()去获取一个ActionContext对象，
      * 然后通过该对象再去获得相应的域对象；也可以通过实现xxxAware接口来注入相应的域对象。我们先来看一下这两种方法：
      */
@@ -57,19 +52,4 @@ public class CategoryAction extends ActionSupport implements RequestAware,Sessio
          return "index2";  
        }  
 
-    
-	@Override
-	public void setApplication(Map<String, Object> application) {
-		this.application = application;
-	}
-
-	@Override
-	public void setRequest(Map<String, Object> request) {
-		this.request = request;
-	}
-
-	@Override
-	public void setSession(Map<String, Object> session) {
-		this.session = session;
-	}
 }
