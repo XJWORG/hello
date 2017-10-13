@@ -8,6 +8,7 @@ import org.hibernate.SessionFactory;
 
 import com.shop.service.BaseService;
 
+@SuppressWarnings("unchecked")
 public class BaseServiceImpl<T> implements BaseService<T> {
     
     //clazz中存储了当前的操作类型，即泛型 T
@@ -44,7 +45,9 @@ public class BaseServiceImpl<T> implements BaseService<T> {
 
     @Override
     public void update(T t) {
+    	System.out.println("------");
         getSession().update(t);
+    	System.out.println("---2---");
     }
 
     @Override
