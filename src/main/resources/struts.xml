@@ -22,4 +22,11 @@
         </action>  
     </package>  
       
+    <package name="shop" extends="struts-default">
+        <!-- 修改类名为spring管理的action的id  -->
+        <action name="category_*" class="categoryAction" method="{1}">
+            <result name="index2">/index2.jsp</result>
+        </action>
+    </package>  
+      
 </struts>  
