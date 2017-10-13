@@ -11,6 +11,7 @@
         <span></span>
         <a href="${pageContext.request.contextPath }/category_update.action?category.id=1&category.type=gga&category.hot=false">访问update</a>
         <a href="category_save.action">访问save</a>
+       <a href="category_save.action?id=4&type=haha&hot=true">测试ModelDriven</a>  
         
        <a href="category_query.action">查询所有类别</a><br/>  
        <c:forEach items="${requestScope.categoryList }" var="category">  

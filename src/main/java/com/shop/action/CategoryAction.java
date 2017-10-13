@@ -7,12 +7,18 @@ import org.apache.struts2.interceptor.RequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.ModelDriven;
 import com.shop.model.Category;
 import com.shop.service.CategoryService;
 
-public class CategoryAction extends BaseAction implements RequestAware,SessionAware,ApplicationAware {
+public class CategoryAction extends BaseAction implements ModelDriven<Category> {
     private Category category = new Category();
     private CategoryService categoryService;
+
+	@Override
+	public Category getModel() {
+		return category;
+	}  
 
     public void setCategoryService(CategoryService categoryService) {
         this.categoryService = categoryService;
@@ -29,9 +35,7 @@ public class CategoryAction extends BaseAction implements RequestAware,SessionAw
     }
     
     public String save(){
-        System.out.println("---struts save");
-        System.out.println(category);
-        System.out.println("---struts save end");
+        categoryService.save(category);
         return "index2";
     }
 
@@ -50,6 +54,6 @@ public class CategoryAction extends BaseAction implements RequestAware,SessionAw
          session.put("categoryList", categoryService.query());   
          application.put("categoryList", categoryService.query());   
          return "index2";  
-       }  
+       }
 
 }
