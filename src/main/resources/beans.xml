@@ -16,6 +16,8 @@
      <context:component-scan base-package="com.shop.."/> 
      
      <bean id="date" class="java.util.Date" />
+     <bean id="sendAction" class="com.shop.action.SendAction"></bean>
+     
      
      <!-- com.mchange.v2.c3p0.ComboPooledDataSource类在c3p0-0.9.5.1.jar包的com.mchange.v2.c3p0包中 -->
      <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">

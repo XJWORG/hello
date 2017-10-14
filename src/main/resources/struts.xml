@@ -27,6 +27,10 @@
         <action name="category_*" class="categoryAction" method="{1}">
             <result name="index2">/index2.jsp</result>
         </action>
+        
+        <action name="send_*_*" class="sendAction">
+            <result name="send">/WEB-INF/{1}/{2}.jsp</result>
+        </action>
     </package>  
       
 </struts>  
