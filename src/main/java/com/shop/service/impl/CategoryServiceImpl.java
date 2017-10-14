@@ -12,7 +12,7 @@ public class CategoryServiceImpl extends BaseServiceImpl<Category> implements Ca
 
 	@Override
 	public List<Category> queryJoinAccount(String type) {
-		String hql = "from Category c where c.type like :type";
+		String hql = "from Category c left join fetch c.account where c.type like :type";
 		return getSession().createQuery(hql).setString("type", "%"+type+"%").list();
 	}
 }
