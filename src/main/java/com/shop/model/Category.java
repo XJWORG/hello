@@ -19,7 +19,6 @@ public class Category implements java.io.Serializable {
     private Integer id;
     private String type;
     private Boolean hot;
-    private Integer aid;
     
     private Account account;
 
@@ -47,14 +46,7 @@ public class Category implements java.io.Serializable {
         this.type = type;
         this.hot = hot;
     }
-
-    /** full constructor */
-    public Category(String type, Boolean hot, Integer aid) {
-        this.type = type;
-        this.hot = hot;
-        this.aid = aid;
-    }
-    
+   
     @Override
     public String toString(){
     	return "Category [id=" + id + ", type= " + type + ", hot=" + hot + ", account=" + account.getId() +"]";
@@ -89,15 +81,6 @@ public class Category implements java.io.Serializable {
     public void setHot(Boolean hot) {
         this.hot = hot;
     }
-
-	@Column(name = "aid")
-	public Integer getAid() {
-		return this.aid;
-	}
-
-	public void setAid(Integer aid) {
-		this.aid = aid;
-	}
 	
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="account_id")
