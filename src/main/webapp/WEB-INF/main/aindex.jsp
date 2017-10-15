@@ -38,11 +38,12 @@
 	    		if($("#tt").tabs("exists",text)){
 	    			$("#tt").tabs("select","text");
 	    		}else{
+	    			alert('<iframe title=' + text + ' src=' + href + ' frameborder="0" width="100%" height="100%" />');
 	    			//如果选中的tab未打开，则新创建一个
 	    			$("#tt").tabs("add",{
 	    				title:text,
 	    				closable:true,
-	    				content:'<frame title=' + text + ' src=' + href + ' frameborder="0" width="100%" height="100%" />'
+	    				content:'<iframe title=' + text + ' src=' + href + ' frameborder="0" width="100%" height="100%" />'
 	    				//href:默认通过url地址加载远程页面，但仅仅是body部分
 	    				//href:'send_category_query.action'
 	    			})
