@@ -55,10 +55,10 @@
                         }
                     }
                     },
-                    {field:'account.login',title:'所属管理员',width:100,
-                        styler: function(value,row,index){
+                    {field:'account.login',title:'所属管理员',width:200,
+                    	formatter: function(value,row,index){
                             if (row.account != null && row.account.login !=null ){
-                                return row.account.login ;
+                                return "<span title=" +">" + row.account.login + "</span>";
                             } else {
                                 return "no admin";
                             }
