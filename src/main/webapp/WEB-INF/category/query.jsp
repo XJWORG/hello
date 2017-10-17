@@ -8,7 +8,7 @@
             $('#dg').datagrid({   
                 //请求数据的url地址，后面会改成请求我们自己的url
                 //url:'datagrid_data.json',
-                url:'category_queryJoinAccount.action'
+                url:'category_queryJoinAccount.action',
                 loadMsg:'Loading......',
                 queryParams:{type:''},//参数
                 //width:300,
@@ -32,26 +32,37 @@
                 //同列属性，但是这些列将会冻结在左侧,大小不会改变，当宽度大于250时，会显示滚动条，但是冻结的列不在滚动条内
                 frozenColumns:[[
                     {field:'checkbox',checkbox:true},
-                    {field:'code',title:'编号',width:200}                 
+                    {field:'id',title:'编号',width:200}                 
                 ]],
                 //配置datagrid的列字段 
                 //field：列字段的名称，与json的key捆绑
                 //title：列标题，是显示给人看的
                 columns:[[                     
-                    {field:'productname',title:'类别名称',width:100,
+                    {field:'type',title:'类别名称',width:100,
                         //用来格式化当前列的值，返回的是最终的数据
                         formatter: function(value,row,index){
                         return "<span title=" +　value + ">" + value + "</span>";
 	                    }
 	                },    
-                    {field:'price',title:'价格',width:100,
+                    {field:'hot',title:'热卖',width:100,
                     styler: function(value,row,index){
                         //设置当前单元格的样式，返回的字符串直接交给 style属性
                         //console.info("val:" + value + ",row:" + row + ",index:" + index)
-                        if (value < 20){
-                            return 'color:red;';
+                        if (value){
+                            return "<input type='checkbox' checked='checked' disable='true'";
+                        } else {
+                        	return "<input type='checkbox' disable='true'";
                         }
-                    }   
+                    }
+                    },
+                    {field:'account.login',title:'所属管理员',width:100,
+                        styler: function(value,row,index){
+                            if (row.account != null && row.account.login !=null ){
+                                return row.account.login ;
+                            } else {
+                                return "no admin";
+                            }
+                        }
                     }
                 ]]    
             }); 

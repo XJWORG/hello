@@ -2,6 +2,7 @@ package com.shop.service.impl;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.springframework.stereotype.Service;
 
 import com.shop.model.Category;
@@ -22,7 +23,10 @@ public class CategoryServiceImpl extends BaseServiceImpl<Category> implements Ca
 
 	@Override
 	public Long getCount(String type) {
-		String hql = "select count(c) from category c where c.type like :type";
-		return (Long)getSession().createQuery(hql).setString("type", "%"+type+"%").uniqueResult();
+		// 注意这里Category的大小写，category是查不到的
+		String hql = "select count(c) from Category c where c.type like :type";
+		return (Long) getSession().createQuery(hql)
+			.setString("type", "%" + type + "%")
+			.uniqueResult(); //返回一条记录:总记录数
 	}
 }

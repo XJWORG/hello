@@ -54,7 +54,7 @@ public class CategoryAction extends BaseAction<Category> {
     	//根据关键字查询总记录数
     	Long count = categoryService.getCount(model.getType());
     	pageMap.put("total", count);
-    	
+
     	return "jsonMap";
     }
 
