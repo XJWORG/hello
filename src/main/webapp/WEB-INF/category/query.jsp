@@ -7,7 +7,8 @@
         $(function(){
             $('#dg').datagrid({   
                 //请求数据的url地址，后面会改成请求我们自己的url
-                url:'datagrid_data.json',
+                //url:'datagrid_data.json',
+                url:'category_queryJoinAccount.action'
                 loadMsg:'Loading......',
                 queryParams:{type:''},//参数
                 //width:300,
