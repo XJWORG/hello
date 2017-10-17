@@ -21,6 +21,34 @@ public class BaseAction<T> extends ActionSupport implements RequestAware, Sessio
     protected Map<String, Object> request;
     protected Map<String, Object> session;
     protected Map<String ,Object> application;
+    //page 和rows和分页有关，pageMap存放查询的数据，然后达成json格式使用
+    protected Integer page;
+    public Integer getPage() {
+		return page;
+	}
+
+	public void setPage(Integer page) {
+		this.page = page;
+	}
+
+	public Integer getRows() {
+		return rows;
+	}
+
+	public void setRows(Integer rows) {
+		this.rows = rows;
+	}
+
+	public Map<String, Object> getPageMap() {
+		return pageMap;
+	}
+
+	public void setPageMap(Map<String, Object> pageMap) {
+		this.pageMap = pageMap;
+	}
+
+	protected Integer rows;
+    protected Map<String ,Object> pageMap;
     
     protected T model ;
     @Resource

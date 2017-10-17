@@ -1,12 +1,12 @@
 package com.shop.action;
 
-import java.util.Map;
+import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.shop.model.Category;
-import com.shop.service.CategoryService;
 
 @Controller("categoryAction")
 @Scope("prototype")
@@ -41,5 +41,21 @@ public class CategoryAction extends BaseAction<Category> {
          application.put("categoryList", categoryService.query());   
          return "index2";  
        }
+    
+    public String queryJoinAccount(){
+    	//用来存储分页的数据
+    	pageMap = new HashMap<String ,Object>();
+    	
+    	//根据关键字和分页的参数查询相应的数据，
+    	List<Category> categoryList = categoryService.queryJoinAccount(model.getType(), page, rows);
+    	//存储为json格式（从实例中看出，datagrid的两个key分别为total和rows，这里先存储rows）。
+    	pageMap.put("rows", categoryList);
+    	
+    	//根据关键字查询总记录数
+    	Long count = categoryService.getCount(model.getType());
+    	pageMap.put("total", count);
+    	
+    	return "jsonMap";
+    }
 
 }
