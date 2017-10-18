@@ -1,6 +1,8 @@
 package com.shop.action;
 
+import java.io.InputStream;
 import java.lang.reflect.ParameterizedType;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -23,7 +25,35 @@ public class BaseAction<T> extends ActionSupport implements RequestAware, Sessio
     protected Map<String ,Object> application;
     //page 和rows和分页有关，pageMap存放查询的数据，然后达成json格式使用
     protected Integer page;
-    public Integer getPage() {
+    protected String ids;
+    protected InputStream inputStream;		
+    protected List<T> jsonList;
+    
+    public List<T> getJsonList() {
+		return jsonList;
+	}
+
+	public void setJsonList(List<T> jsonList) {
+		this.jsonList = jsonList;
+	}
+
+	public String getIds() {
+		return ids;
+	}
+
+	public void setIds(String ids) {
+		this.ids = ids;
+	}
+
+	public InputStream getInputStream() {
+		return inputStream;
+	}
+
+	public void setInputStream(InputStream inputStream) {
+		this.inputStream = inputStream;
+	}
+
+	public Integer getPage() {
 		return page;
 	}
 

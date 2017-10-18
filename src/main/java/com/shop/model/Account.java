@@ -14,7 +14,7 @@ import javax.persistence.OneToMany;
 /**
  * Account entity. @author MyEclipse Persistence Tools
  */
-@Entity
+@Entity(name = "Account")
 public class Account implements java.io.Serializable {
 
 	// Fields

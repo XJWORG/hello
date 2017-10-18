@@ -42,7 +42,7 @@
                 	iconCls: 'icon-add',
                 	text: '添加类别',
                 	handler: function(){
-                		parent.$("#win").window({
+                		parent.$("#win").window({ //因为win是在query的父页面中，所以这里要先调parent定位到aindex页面
                 			title: "添加类别",
                 			width: 350,
                 			heiht: 150,

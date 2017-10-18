@@ -1,5 +1,6 @@
 package com.shop.action;
 
+import java.io.ByteArrayInputStream;
 import java.util.HashMap;
 import java.util.List;
 
@@ -20,9 +21,8 @@ public class CategoryAction extends BaseAction<Category> {
         return "index2";
     }
     
-    public String save(){
+    public void save(){
         categoryService.save(model);
-        return "index2";
     }
 
     /*我们知道，在Action中可以直接通过ActionContext.getContext()去获取一个ActionContext对象，
@@ -57,5 +57,12 @@ public class CategoryAction extends BaseAction<Category> {
 
     	return "jsonMap";
     }
-
+    
+    public String deleteByIds(String ids){
+    	System.out.println(ids);
+    	categoryService.deleteByIds(ids);
+    	//如果删除成功就会继续执行，我们将true以流的形式传给前台
+    	inputStream = new ByteArrayInputStream("true".getBytes()); //将true字节存到流inputStream中
+    	return "stream";
+    }
 }
