@@ -97,13 +97,13 @@
                 			$.messager.confirm('删除确认','您确定要删除吗？', function(r){
                 				if(r){
                 					//1.从获取的记录中获取响应的id，拼接id的值，然后发送给后台
-                					var ids = '',
+                					var ids = '';
                 					for(var i=0;i<rows.length;i++){
                 						ids += rows[i].id +",";
                 					}
                 					ids = ids.substr(0,ids.lastIndexOf(','));
                 					//2,发送ajax请求
-                					$.post('category_deleteByIds.action',{ids:ids}),function(result){
+                					$.post('category_deleteByIds.action',{ids:ids},function(result){
                 						if(result=="true"){
                 							$('#dg').datagrid("uncheckAll");
                 							$('#dg').datagrid('reload');
@@ -115,7 +115,7 @@
                 								showType: 'slide',
                 							});
                 						}
-                					},"text");
+                					},"text" );
                 			
                 				}
                 			});
@@ -172,14 +172,14 @@
                     }
                 ]]    
             }); 
-            #('#ss').searchbox({
-            	//触发事件查询
-            	searcher: function(value, name){
-            		$('#dg').datagrid('load', {
-            			type: value
-            		});
-            	},
-            	prompt: '请输入搜索关键字'
+            $('#ss').searchbox({
+                //触发事件查询
+                searcher: function(value, name){
+                    $('#dg').datagrid('load', {
+                        type: value
+                    });
+                },
+                prompt: '请输入搜索关键字'
             });
         });
     </script>
