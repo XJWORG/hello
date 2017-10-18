@@ -3,6 +3,17 @@
 <html>
   <head>
     <%@ include file="/public/head.jspf" %>
+    
+    <style type="text/css">
+        body {
+            margin: 1px;
+        }
+        
+        .searchbox{
+            marigin: -3px;
+        }
+    </style>
+    
     <script type="text/javascript">
         $(function(){
             $('#dg').datagrid({   
@@ -20,6 +31,101 @@
                 singleSelect:true, //如果为真，只允许单行显示，全显功能失效
                 //设置分页
                 pagination:true,
+                //设置每页显示记录数
+                pageSize:5,
+                //设置可选显示记录数
+                pageList:[5,10,15,20],
+                //指定标识字段，在删除，更新时使用。如果配置此字段，翻页、换页时不会影响选中打的项
+                idField:'id',
+                //添加删除按钮-本次重点
+                toolbar: [{
+                	iconCls: 'icon-add',
+                	text: '添加类别',
+                	handler: function(){
+                		parent.$("#win").window({
+                			title: "添加类别",
+                			width: 350,
+                			heiht: 150,
+                			content:'<iframe src="send_category_save.action" frameborder="0" width="100%" height="100%" />'
+                		});
+                	}
+                } , '-' , {
+                	iconCls: "icon-edit",
+                	text: "更新类别",
+                	handler: function(){
+                		//判断是否有选中行记录，使用getSelections获取选中的所有行
+                		var rows = $("#dg").datagrid("getSelections");
+                		if(rows.length==0){
+                			$.messager.show({//语法类似于java中的静态方法，直接对象调用
+                				title: '错误提示',
+                				msg: '至少要选择一条记录',
+                				timeout: 2000,
+                				showType: 'slide',
+                			});
+                		} else if(rows.length!=1){
+                			//弹出提示信息
+                			$.messager.show({
+                				title: '错误提示',
+                				msg: '每次只能更新一条记录',
+                				timeout: 2000,
+                				showType: 'slide',
+                			});
+                		} else {
+                			//1.弹出更新的弹框
+                			parent.$('#win').window({
+                				title: '更新类别',
+                				width: 350 ,
+                				height: 250,
+                				content: '<iframe src="send_category_update.action" frameborder="0" width="100%" height="100%" />',
+                			});
+                		}
+                	}
+                } ,'-' , {
+                	iconCls: 'icon-remove',
+                	text: '删除类别',
+                	handler: function(){
+                		//判断是否有选中行，使用getSelections获知选中行
+                		var rows = $('#dg').datagrid('getSelections');
+                		if(rows.length==0){
+                			$.messager.show({
+                				title: '错误提示',
+                				msg: '至少应包含一条记录',
+                				timeout: 2000,
+                				showType: 'slide',
+                			});
+                		} else {
+                			$.messager.confirm('删除确认','您确定要删除吗？', function(r){
+                				if(r){
+                					//1.从获取的记录中获取响应的id，拼接id的值，然后发送给后台
+                					var ids = '',
+                					for(var i=0;i<rows.length;i++){
+                						ids += rows[i].id +",";
+                					}
+                					ids = ids.substr(0,ids.lastIndexOf(','));
+                					//2,发送ajax请求
+                					$.post('category_deleteByIds.action',{ids:ids}),function(result){
+                						if(result=="true"){
+                							$('#dg').datagrid("uncheckAll");
+                							$('#dg').datagrid('reload');
+                						} else {
+                							$.messager.show({
+                								title: '删除异常',
+                								msg: '删除失败，请检查操作',
+                								timeout: 2000 , 
+                								showType: 'slide',
+                							});
+                						}
+                					},"text");
+                			
+                				}
+                			});
+                		}
+                	}
+                } ,'-' ,{
+                	text: '<input id="ss" name="search" />'
+                }],
+                
+                
                 rowStyler: function(index,row){
                     console.info("index" + index + "," + row)
                     if(index % 2 == 0) {
@@ -66,6 +172,15 @@
                     }
                 ]]    
             }); 
+            #('#ss').searchbox({
+            	//触发事件查询
+            	searcher: function(value, name){
+            		$('#dg').datagrid('load', {
+            			type: value
+            		});
+            	},
+            	prompt: '请输入搜索关键字'
+            });
         });
     </script>
   </head>
