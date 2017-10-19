@@ -28,7 +28,7 @@ public class BaseAction<T> extends ActionSupport implements RequestAware, Sessio
     protected Integer page;
     protected String ids;
     protected InputStream inputStream;		
-    protected List<T> jsonList;
+    protected List<T> jsonList = null;
     
     public List<T> getJsonList() {
 		return jsonList;

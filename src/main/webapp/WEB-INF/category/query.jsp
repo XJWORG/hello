@@ -103,8 +103,9 @@
                 					}
                 					ids = ids.substr(0,ids.lastIndexOf(','));
                 					//2,发送ajax请求
-                					$.post('category_deleteByIds.action',{ids:ids},function(result){
-                						if(result=="true"){
+                					$.post('category_deleteByIds.action', {ids:ids}, function(result){
+                					
+                						if(result == "true"){
                 							$('#dg').datagrid("uncheckAll");
                 							$('#dg').datagrid('reload');
                 						} else {
@@ -155,9 +156,9 @@
                         //设置当前单元格的样式，返回的字符串直接交给 style属性
                         //console.info("val:" + value + ",row:" + row + ",index:" + index)
                         if (value){
-                            return "<input type='checkbox' checked='checked' disable='true' />";
+                            return "<input type='checkbox' checked='checked' disabled='true' />";
                         } else {
-                        	return "<input type='checkbox' disable='true' />";
+                        	return "<input type='checkbox' disabled='true' />";
                         }
                     }
                     },

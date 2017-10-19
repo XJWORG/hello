@@ -41,6 +41,14 @@ public class CategoryAction extends BaseAction<Category> {
          application.put("categoryList", categoryService.query());   
          return "index2";  
        }
+
+    public String deleteByIds(String ids){
+        System.out.println("------------------");
+        categoryService.deleteByIds(ids);
+        //如果删除成功就会继续执行，我们将true以流的形式传给前台
+        inputStream = new ByteArrayInputStream("true".getBytes()); //将true字节存到流inputStream中
+        return "stream";
+    }
     
     public String queryJoinAccount(){
     	//用来存储分页的数据
@@ -58,11 +66,4 @@ public class CategoryAction extends BaseAction<Category> {
     	return "jsonMap";
     }
     
-    public String deleteByIds(String ids){
-    	System.out.println(ids);
-    	categoryService.deleteByIds(ids);
-    	//如果删除成功就会继续执行，我们将true以流的形式传给前台
-    	inputStream = new ByteArrayInputStream("true".getBytes()); //将true字节存到流inputStream中
-    	return "stream";
-    }
 }
