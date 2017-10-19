@@ -42,7 +42,7 @@ public class CategoryAction extends BaseAction<Category> {
          return "index2";  
        }
 
-    public String deleteByIds(String ids){
+    public String deleteByIds(){
         System.out.println("------------------");
         categoryService.deleteByIds(ids);
         //如果删除成功就会继续执行，我们将true以流的形式传给前台

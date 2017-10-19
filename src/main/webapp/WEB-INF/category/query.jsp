@@ -104,7 +104,6 @@
                 					ids = ids.substr(0,ids.lastIndexOf(','));
                 					//2,发送ajax请求
                 					$.post('category_deleteByIds.action', {ids:ids}, function(result){
-                					
                 						if(result == "true"){
                 							$('#dg').datagrid("uncheckAll");
                 							$('#dg').datagrid('reload');
