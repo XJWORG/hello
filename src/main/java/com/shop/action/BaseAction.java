@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
+import com.shop.service.AccountService;
 import com.shop.service.CategoryService;
 
 @Controller("baseAction")
@@ -83,6 +84,8 @@ public class BaseAction<T> extends ActionSupport implements RequestAware, Sessio
     protected T model ;
     @Resource
     protected CategoryService categoryService;
+    @Resource
+    protected AccountService accountService;
     
 	@Override
 	public void setApplication(Map<String, Object> application) {
