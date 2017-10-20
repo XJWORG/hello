@@ -25,6 +25,7 @@
         
         <mapping class="com.shop.model.Category" />
         <mapping class="com.shop.model.Account" />
+        <mapping class="com.shop.model.Product" />
 
 
     </session-factory>

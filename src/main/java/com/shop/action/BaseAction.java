@@ -16,6 +16,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.shop.service.AccountService;
 import com.shop.service.CategoryService;
+import com.shop.service.ProductService;
 
 @Controller("baseAction")
 public class BaseAction<T> extends ActionSupport implements RequestAware, SessionAware, ApplicationAware, ModelDriven<T> {
@@ -29,6 +30,17 @@ public class BaseAction<T> extends ActionSupport implements RequestAware, Sessio
     protected String ids;
     protected InputStream inputStream;		
     protected List<T> jsonList = null;
+
+	protected Integer rows;
+    protected Map<String ,Object> pageMap;
+    
+    protected T model ;
+    @Resource
+    protected CategoryService categoryService;
+    @Resource
+    protected AccountService accountService;
+    @Resource
+    protected ProductService productService;
     
     public List<T> getJsonList() {
 		return jsonList;
@@ -78,15 +90,6 @@ public class BaseAction<T> extends ActionSupport implements RequestAware, Sessio
 		this.pageMap = pageMap;
 	}
 
-	protected Integer rows;
-    protected Map<String ,Object> pageMap;
-    
-    protected T model ;
-    @Resource
-    protected CategoryService categoryService;
-    @Resource
-    protected AccountService accountService;
-    
 	@Override
 	public void setApplication(Map<String, Object> application) {
 		this.application = application;

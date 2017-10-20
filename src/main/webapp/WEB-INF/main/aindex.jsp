@@ -60,7 +60,7 @@
                 <div title="基本操作" data-options="iconCls:'icon-save'" style="overflow:auto;padding:10px;"> 
 			       <ul>  
 			           <li><a href="#" title="send_category_query.action">类别管理</a>  
-			           <li><a href="#">商品管理</a>  
+			           <li><a href="#" title="send_product_query.action">商品管理</a>  
 			       </ul>  
                 </div>   
                 <div title="其他操作">
