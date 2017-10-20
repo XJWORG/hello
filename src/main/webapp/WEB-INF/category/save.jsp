@@ -64,7 +64,7 @@
         <div>   
             <label for="hot">热点:</label>   
                 是<input type="radio" name="hot" value="true" /> 
-                否 <input type="radio" name="hot" value="true" />
+                否 <input type="radio" name="hot" value="false" />
         </div>  
         <div>
             <a id="btn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add'">添加</a>  
