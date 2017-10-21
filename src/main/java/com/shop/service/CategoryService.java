@@ -10,4 +10,6 @@ public interface CategoryService extends BaseService<Category>{
 	public List<Category> queryJoinAccount(String type, int page, int size);  //实现分页
 	//根据ids删除多条记录
 	public void deleteByIds(String ids);
+	//根据热点boolean查询热点或非热点类别
+	public List<Category> queryByHot(boolean hot);
 }

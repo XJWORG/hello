@@ -13,4 +13,7 @@ public interface ProductService extends BaseService<Product> {
     public List<Product> queryJoinCategory(String name, int page, int size);  //实现分页
     //根据ids删除多条记录
     public void deleteByIds(String ids);
+    //根据热点类别查询商品
+    public List<Product> queryByCategoryId(int cid);
+    
 }

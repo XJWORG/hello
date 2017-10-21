@@ -9,6 +9,10 @@
  </span>
  
  
+<!-- 下面是前端页面的样式 -->
+<link rel="stylesheet" href="${shop }/css/public.css" />
+<link rel="stylesheet" href="${shop }/css/style.css" />
+ 
 <!-- 下面是easyui的环境 -->  
 <link rel="stylesheet" href="${shop }/jquery-easyui-1.5.3/themes/icon.css" type="text/css"></link>  
 <link rel="stylesheet" href="${shop }/jquery-easyui-1.5.3/themes/default/easyui.css" type="text/css"></link>  
