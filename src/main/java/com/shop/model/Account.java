@@ -1,15 +1,20 @@
 package com.shop.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.OneToMany;
 
 /**
  * Account entity. @author MyEclipse Persistence Tools
  */
-@Entity
+@Entity(name = "Account")
 public class Account implements java.io.Serializable {
 
 	// Fields
@@ -18,10 +23,20 @@ public class Account implements java.io.Serializable {
 	private String name;
 	private String pass;
 
+	private Set<Category> categories = new HashSet<Category>(0);
 	// Constructors
 
 	/** default constructor */
 	public Account() {
+	}
+
+
+	/** full constructor */
+	public Account(String login, String name, String pass, Set<Category> categories) {
+		this.login = login;
+		this.name = name;
+		this.pass = pass;
+		this.categories=categories;
 	}
 
 	/** full constructor */
@@ -77,4 +92,12 @@ public class Account implements java.io.Serializable {
 		this.pass = pass;
 	}
 
+	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.EAGER,mappedBy="account")
+	public Set<Category> getCategories(){
+		return this.categories;
+	}
+	
+	public void setCategories(Set<Category> categories){
+		this.categories = categories;
+	}
 }

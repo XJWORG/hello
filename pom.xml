@@ -35,6 +35,20 @@
     </dependency>
     
     <dependency>
+	    <groupId>org.apache.struts</groupId>
+	    <artifactId>struts2-json-plugin</artifactId>
+	    <version>2.3.30</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/com.hynnet/json-lib -->
+	<dependency>
+	    <groupId>com.hynnet</groupId>
+	    <artifactId>json-lib</artifactId>
+	    <version>2.4</version>
+	</dependency>
+
+	
+    <dependency>
 	    <groupId>taglibs</groupId>
 	    <artifactId>standard</artifactId>
 	    <version>1.1.2</version>

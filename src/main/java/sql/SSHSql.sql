@@ -14,15 +14,13 @@ drop table if exists category;
 create table account
 (
     /* 管理员编号，自动增长 */
-    id int not null auto_increment,
+    id int primary key not null auto_increment,
     /* 管理员登录名 */
     login varchar(20),
     /* 管理员姓名 */
     name varchar(20),
     /* 管理员密码 */
-    pass varchar(20),
-    /* 设置编号为主键 */
-    primary key (id)
+    pass varchar(20)
 );
 
 /*============================*/
@@ -31,24 +29,40 @@ create table account
 create table category
 (
    /* 类别编号，自动增长 */
-   id  int not null auto_increment,
+   id  int primary key not null auto_increment,
    /* 类别名称 */
    type varchar(20),
    /* 类别是否为热点类别，热点类别才有可能显示在首页*/
    hot  bool default false,
    /* 外键，此类别由哪位管理员管理 */
-   aid int,
-   /* 设置类别编号为主键*/
-   primary key (id)
+   account_id int,
+   constraint aid_FK foreign key(account_id) references account(id)
 );
 
-/*插入测试用例*/
-insert into account(login,name,pass) values('admin','管理员','admin');
-insert into account(login,name,pass) values('user','客服A','user');
-
-insert into category (type,hot,aid) values('男士休闲',true,1);
-insert into category (type,hot,aid) values('女士休闲',true,1);
-insert into category (type,hot,aid) values('儿童休闲',true,2);
-
-select * from account;
-select * from category;
+/*=============================*/
+/* Table: 商品表结构            */
+/*=============================*/
+create table product
+(
+   /* 商品编号,自动增长 */
+   id                  int primary key not null auto_increment,
+   /* 商品名称 */
+   name                varchar(20),
+   /* 商品价格 */
+   price               decimal(8,2),
+   /* 商品图片 */
+   pic                 varchar(200),
+   /* 商品简单介绍 */
+   remark              longtext,
+   /* 商品详细介绍 */
+   xremark             longtext,
+   /* 商品生产日期 */
+   date                timestamp default CURRENT_TIMESTAMP,
+   /* 是否为推荐商品,推荐商品才有可能显示在商城首页 */
+   commend             bool,
+   /* 是否为有效商品,有效商品才有可能显示在商城首页 */
+   open                bool,
+   /* 商品所在的类别编号*/
+   cid                  int,
+   constraint cid_FK foreign key(cid) references category(id)
+);
