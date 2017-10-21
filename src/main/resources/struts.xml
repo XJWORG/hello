@@ -76,7 +76,7 @@
                 -->
                 <!-- rows[0].account.pass-->  
                 <param name="excludeProperties">
-                    rows\[\d+\]\.category\.account
+                    rows\[\d+\]\.category\.account <!-- 博主说不这样注释，会出现懒加载问题 -->
                 </param>
             </result>
             
