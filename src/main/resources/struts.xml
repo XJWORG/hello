@@ -76,6 +76,7 @@
                 -->
                 <!-- rows[0].account.pass-->  
                 <param name="excludeProperties">
+                    rows\[\d+\]\.category\.account
                 </param>
             </result>
             
