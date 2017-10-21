@@ -10,9 +10,9 @@
     </style>
     <script type="text/javascript">
         $(function(){
-            $("input[name=type]").validatebox({ //这里是“类别名称”的验证功能，如果用户没填好就提交的话，会有提示
+            $("input[name=name]").validatebox({ //这里是“类别名称”的验证功能，如果用户没填好就提交的话，会有提示
                 required:true,
-                missingMessage:'请输入类别名称' //提示的内容
+                missingMessage:'请输入商品名称' //提示的内容
             });     
 
                     //对管理员的下拉列表框进行远程加载

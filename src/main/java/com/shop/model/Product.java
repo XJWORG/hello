@@ -19,7 +19,7 @@ public class Product implements java.io.Serializable {
 	// Fields
 
 	private Integer id;
-	private Category category;
+	private Category category = new Category();
 	private String name;
 	private Double price;
 	private String pic;
@@ -28,7 +28,7 @@ public class Product implements java.io.Serializable {
 	private Date date;
 	private Boolean commend;
 	private Boolean open;
-
+	
 	@Override
 	public String toString() {
 		return "Product [id=" + id + ", category=" + category + ", name="

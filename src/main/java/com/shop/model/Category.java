@@ -1,6 +1,10 @@
 package com.shop.model;
 
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -8,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /**
  * Category entity. @author MyEclipse Persistence Tools
@@ -21,6 +26,17 @@ public class Category implements java.io.Serializable {
     private Boolean hot;
     
     private Account account;
+    
+    private Set<Product> products = new HashSet<Product>(0);
+
+    @OneToMany(cascade=CascadeType.ALL,fetch=FetchType.EAGER,mappedBy="category")
+    public Set<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(Set<Product> products) {
+        this.products = products;
+    }
 
     // Constructors
     /** default constructor */

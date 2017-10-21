@@ -32,7 +32,7 @@ public class BaseAction<T> extends ActionSupport implements RequestAware, Sessio
     protected List<T> jsonList = null;
 
 	protected Integer rows;
-    protected Map<String ,Object> pageMap;
+    protected Map<String ,Object> pageMap = null;
     
     protected T model ;
     @Resource

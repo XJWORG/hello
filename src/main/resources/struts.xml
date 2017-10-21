@@ -63,6 +63,27 @@
         </action>
         
         
+        <!-- 修改类名为spring管理的action的id  -->
+        <action name="product_*" class="productAction" method="{1}">
+        
+            <result name="index2">/index2.jsp</result>
+            
+            <result name="jsonMap" type="json">
+                <!-- 转换成Json对象格式 -->
+                <param name="root">pageMap</param>
+                <!-- 配置黑名单，过滤不需要的选项 ，支持正则表达式  
+                json格式：{total:3,rows:[{account:{id:2,login:"user",name:"客服A",pass:"user"},hot:true,id:3,…}]}  
+                -->
+                <!-- rows[0].account.pass-->  
+                <param name="excludeProperties">
+                </param>
+            </result>
+            
+            <result name="stream" type="stream">
+                <param name="inputName">inputStream</param>
+            </result>
+            
+        </action>
         
         <action name="send_*_*" class="sendAction">
             <result name="send">/WEB-INF/{1}/{2}.jsp</result>
