@@ -34,11 +34,21 @@ public class ProductAction extends BaseAction<Product> {
     }
     
     public void save() throws Exception {
+        //fileUpload工具类被抽取了，uploadFile方法直接接受一个fileImage对象，返回新的图片名
+        String pic = fileUpload.uploadFile(fileImage);
+        
+        model.setPic(pic);
+
         model.setDate(new Date());
         productService.save(model);
     }
     
     public void update(){
+        //fileUpload工具类被抽取了，uploadFile方法直接接受一个fileImage对象，返回新的图片名
+        String pic = fileUpload.uploadFile(fileImage);
+        
+        model.setPic(pic);
+
         model.setDate(new Date());
         productService.update(model);
     }

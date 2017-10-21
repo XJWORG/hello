@@ -14,8 +14,10 @@ import org.springframework.stereotype.Controller;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
+import com.shop.model.FileImage;
 import com.shop.service.AccountService;
 import com.shop.service.CategoryService;
+import com.shop.service.FileUpload;
 import com.shop.service.ProductService;
 
 @Controller("baseAction")
@@ -41,7 +43,21 @@ public class BaseAction<T> extends ActionSupport implements RequestAware, Sessio
     protected AccountService accountService;
     @Resource
     protected ProductService productService;
+
+    //封装了图片信息的类
+    protected FileImage fileImage;
     
+    //上传文件工具类
+    @Resource
+    protected FileUpload fileUpload;
+
+    public FileImage getFileImage() {
+        return fileImage;
+    }
+    public void setFileImage(FileImage fileImage) {
+        this.fileImage = fileImage;
+    }
+
     public List<T> getJsonList() {
 		return jsonList;
 	}
