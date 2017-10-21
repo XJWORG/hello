@@ -35,11 +35,14 @@ public class CategoryAction extends BaseAction<Category> {
 //         ActionContext.getContext().getApplication().put("categoryList", categoryService.query()); //放到application域中   
          
 //           解决方案二，实现相应的接口(RequestAware,SessionAware,ApplicationAware)，让相应的map注入   
-    	 System.out.println(request);
-         request.put("categoryList", categoryService.query());   
-         session.put("categoryList", categoryService.query());   
-         application.put("categoryList", categoryService.query());   
-         return "index2";  
+//    	 System.out.println(request);
+//         request.put("categoryList", categoryService.query());   
+//         session.put("categoryList", categoryService.query());   
+//         application.put("categoryList", categoryService.query());   
+//         return "index2";  
+
+        jsonList = categoryService.query();
+        return "jsonList";
        }
 
     public String deleteByIds(){

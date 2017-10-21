@@ -33,8 +33,8 @@ public class ProductServiceImpl extends BaseServiceImpl<Product> implements Prod
 
     @Override
     public void deleteByIds(String ids) {
-        // TODO Auto-generated method stub
-        
+        String hql = "delete from Product c where c.id in (" + ids + ")";
+        getSession().createQuery(hql).executeUpdate();
     }
 
 

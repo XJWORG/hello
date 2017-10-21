@@ -60,6 +60,11 @@
                 <param name="inputName">inputStream</param>
             </result>
             
+            <result name="jsonList" type="json">
+                <param name="root">jsonList</param>
+                <param name="excludeProperties">
+                </param>
+            </result>
         </action>
         
         

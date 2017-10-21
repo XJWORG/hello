@@ -28,7 +28,7 @@
                 striped:true,
                 //当数据多的时候不换行
                 nowrap:true,
-                singleSelect:true, //如果为真，只允许单行显示，全显功能失效
+                singleSelect: false, //如果为真，只允许单行显示，全显功能失效
                 //设置分页
                 pagination:true,
                 //设置每页显示记录数
@@ -82,7 +82,7 @@
                 	}
                 } ,'-' , {
                 	iconCls: 'icon-remove',
-                	text: '删除类别',
+                	text: '删除商品',
                 	handler: function(){
                 		//判断是否有选中行，使用getSelections获知选中行
                 		var rows = $('#dg').datagrid('getSelections');
@@ -103,7 +103,7 @@
                 					}
                 					ids = ids.substr(0,ids.lastIndexOf(','));
                 					//2,发送ajax请求
-                					$.post('category_deleteByIds.action', {ids:ids}, function(result){
+                					$.post('product_deleteByIds.action', {ids:ids}, function(result){
                 						if(result == "true"){
                 							$('#dg').datagrid("uncheckAll");
                 							$('#dg').datagrid('reload');
@@ -165,8 +165,8 @@
             $('#ss').searchbox({
                 //触发事件查询
                 searcher: function(value, name){
-                    $('#dg').datagrid('load', {
-                        type: value
+                    $('#dg').datagrid('load', { //参数name指定为用户输入的value
+                        name: value
                     });
                 },
                 prompt: '请输入搜索关键字'

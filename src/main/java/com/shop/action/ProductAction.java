@@ -1,5 +1,7 @@
 package com.shop.action;
 
+import java.io.ByteArrayInputStream;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -13,18 +15,26 @@ import com.shop.model.Product;
 public class ProductAction extends BaseAction<Product> {
 
     public String queryJoinCategory(){
-        System.out.println("---------------");
         //定义easyui的输出json参数
         pageMap = new HashMap<String ,Object>(); 
         
         List<Product> productList = productService.queryJoinCategory(model.getName(), page, rows);
         pageMap.put("rows", productList);
-        System.out.println("--------1-------");
         
         Long count = (Long)productService.getCount(model.getName());
         pageMap.put("total", count);
 
-        System.out.println("-------2--------");
         return "jsonMap";
+    }
+    
+    public String deleteByIds(){
+        productService.deleteByIds(ids);
+        inputStream = new ByteArrayInputStream("true".getBytes()); //将true字节存到流inputStream中
+        return "stream";
+    }
+    
+    public void save() throws Exception {
+        model.setDate(new Date());
+        productService.save(model);
     }
 }
