@@ -37,4 +37,9 @@ public class ProductAction extends BaseAction<Product> {
         model.setDate(new Date());
         productService.save(model);
     }
+    
+    public void update(){
+        model.setDate(new Date());
+        productService.update(model);
+    }
 }

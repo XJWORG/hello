@@ -51,7 +51,7 @@
                 	}
                 } , '-' , {
                 	iconCls: "icon-edit",
-                	text: "更新类别",
+                	text: "更新商品",
                 	handler: function(){
                 		//判断是否有选中行记录，使用getSelections获取选中的所有行
                 		var rows = $("#dg").datagrid("getSelections");
@@ -73,10 +73,10 @@
                 		} else {
                 			//1.弹出更新的弹框
                 			parent.$('#win').window({
-                				title: '更新类别',
+                				title: '更新商品',
                 				width: 350 ,
                 				height: 250,
-                				content: '<iframe src="send_category_update.action" frameborder="0" width="100%" height="100%" />',
+                				content: '<iframe src="send_product_update.action" frameborder="0" width="100%" height="100%" />',
                 			});
                 		}
                 	}

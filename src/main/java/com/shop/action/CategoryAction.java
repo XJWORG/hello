@@ -14,11 +14,10 @@ import com.shop.model.Category;
 public class CategoryAction extends BaseAction<Category> {
 
     
-    public String update(){
+    public void update(){
         System.out.println("---struts update ");
         System.out.println(model);
         categoryService.update(model);
-        return "index2";
     }
     
     public void save(){
