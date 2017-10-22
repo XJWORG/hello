@@ -22,11 +22,15 @@
         -->
         
         <property name="show_sql">true</property>
+        <!-- 配置二级缓存提供商，注意此处并不是缓存的jar包 -->
+        <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
         
         <mapping class="com.shop.model.Category" />
         <mapping class="com.shop.model.Account" />
         <mapping class="com.shop.model.Product" />
-
+        
+        <!-- 配置那些累支持缓存，我们用于首页的热门商品展示，所以Product类支持缓存 -->
+        <class-cache usage="read-only" class="com.shop.model.Product"/>
 
     </session-factory>
 

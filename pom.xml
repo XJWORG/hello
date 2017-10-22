@@ -28,6 +28,13 @@
       <scope>test</scope>
     </dependency>
     
+    <!-- 添加二级缓存相关 -->
+	<dependency>
+	    <groupId>org.hibernate</groupId>
+	    <artifactId>hibernate-ehcache</artifactId>
+	    <version>4.3.11.Final</version>
+	</dependency>
+    
     <dependency>
         <groupId>javax.servlet</groupId>
         <artifactId>jstl</artifactId>

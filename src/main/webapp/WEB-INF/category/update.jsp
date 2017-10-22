@@ -23,7 +23,7 @@
                 panelWidth:120,//下拉列表是两个组件组成的
                 width:120, //要同时设置两个宽度才行
                 editable:false //下拉框不允许编辑
-             });  
+            });  
             
             // 完成数据的回显，更新时，用户肯定先选择了要更新的那一行，首先我们得拿到那一行
             var rows = dg.datagrid("getSelections");
@@ -31,7 +31,7 @@
             $("#ff").form('load',{
                 id:rows[0].id,
                 type:rows[0].type,
-                    hot:rows[0].hot,
+                hot:rows[0].hot,
                 'account.id':rows[0].account.id //EasyUI不支持account.id这种点操作，所以要加个引号
             });
 
@@ -75,7 +75,16 @@
         </div>  
         <div>   
             <label for="account">所属管理员:</label>
-             <!-- 下拉列表我们采用远程加载的方法加载管理员数据 -->
+            <!-- 基于Html代码的方式
+            <select id="cc" class="easyui-combobox" name="dept" style="width:200px;">   
+                <option value="aa">aitem1</option>   
+                <option>bitem2</option>   
+                <option>bitem3</option>   
+                <option>ditem4</option>   
+                <option>eitem5</option>   
+            </select>   
+             -->
+             <!-- 远程加载管理员数据 -->
              <input id="cc" name="account.id" />
         </div>
         <div>
