@@ -24,6 +24,7 @@ public class ProductServiceImpl extends BaseServiceImpl<Product> implements Prod
 
     @Override
     public List<Product> queryJoinCategory(String name, int page, int size) {
+    	System.out.println("name:"+name);
         String hql = "from Product c left join fetch c.category where c.name like :name";
         return getSession().createQuery(hql)
                 .setString("name", "%"+name+"%")
