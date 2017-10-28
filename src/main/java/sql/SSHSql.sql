@@ -45,8 +45,8 @@ create table category
    /* 类别是否为热点类别，热点类别才有可能显示在首页*/
    hot  bool default false,
    /* 外键，此类别由哪位管理员管理 */
-   aid int,
-   constraint aid_FK foreign key(aid) references account(id)
+   account_id int,
+   constraint aid_FK foreign key(account_id) references account(id)
 );
 
 /*=============================*/
@@ -167,10 +167,10 @@ create table sorder
 insert into account(login,name,pass) values('admin','管理员','admin');
 insert into account(login,name,pass) values('user','客服A','user');
 
-INSERT INTO category (type,hot,aid) VALUES ('男士休闲',true,1);
-INSERT INTO category (type,hot,aid) VALUES ('女士休闲',true,1);
-INSERT INTO category (type,hot,aid) VALUES ('儿童休闲',true,2);
-INSERT INTO category (type,hot,aid) VALUES ('老人休闲',true,2);
+INSERT INTO category (type,hot,account_id) VALUES ('男士休闲',true,1);
+INSERT INTO category (type,hot,account_id) VALUES ('女士休闲',true,1);
+INSERT INTO category (type,hot,account_id) VALUES ('儿童休闲',true,2);
+INSERT INTO category (type,hot,account_id) VALUES ('老人休闲',true,2);
 
 /* 商品测试用例 */
 INSERT INTO product (name,price,pic,remark,xremark,commend,open,cid) VALUES 

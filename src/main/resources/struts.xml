@@ -91,6 +91,14 @@
             </result>
             
         </action>
+                <action name="sorder_*" class="sorderAction" method="{1}">
+            <result name="showCart">/user/showCart.jsp</result>
+        </action>
+        
+        <action name="user_*" class="userAction" method="{1}">
+            <result name="login" type="redirect">/ulogin.jsp</result>
+        </action>
+        
         
         <action name="send_*_*" class="sendAction">
             <result name="send">/WEB-INF/{1}/{2}.jsp</result>

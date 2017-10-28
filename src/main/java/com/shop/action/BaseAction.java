@@ -18,7 +18,10 @@ import com.shop.model.FileImage;
 import com.shop.service.AccountService;
 import com.shop.service.CategoryService;
 import com.shop.service.FileUpload;
+import com.shop.service.ForderService;
 import com.shop.service.ProductService;
+import com.shop.service.SorderService;
+import com.shop.service.UserService;
 
 @Controller("baseAction")
 public class BaseAction<T> extends ActionSupport implements RequestAware, SessionAware, ApplicationAware, ModelDriven<T> {
@@ -43,6 +46,14 @@ public class BaseAction<T> extends ActionSupport implements RequestAware, Sessio
     protected AccountService accountService;
     @Resource
     protected ProductService productService;
+    @Resource
+    protected ForderService forderService;
+    
+    @Resource
+    protected SorderService sorderService;
+    
+    @Resource
+    protected UserService userService;
 
     //封装了图片信息的类
     protected FileImage fileImage;

@@ -3,7 +3,6 @@ package com.shop.model;
 
 import java.math.BigDecimal;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,7 +10,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
 /**
  * Sorder entity. @author MyEclipse Persistence Tools
@@ -25,7 +23,7 @@ public class Sorder implements java.io.Serializable {
     private Forder forder;
     private Product product;
     private String name;
-    private BigDecimal price;
+    private double price;
     private Integer number;
 
     // Constructors
@@ -40,7 +38,7 @@ public class Sorder implements java.io.Serializable {
     }
 
     /** full constructor */
-    public Sorder(Forder forder, Product product, String name, BigDecimal price,
+    public Sorder(Forder forder, Product product, String name, double price,
             Integer number) {
         this.forder = forder;
         this.product = product;
@@ -91,11 +89,11 @@ public class Sorder implements java.io.Serializable {
     }
 
     @Column(name = "price", precision = 8)
-    public BigDecimal getPrice() {
+    public double getPrice() {
         return this.price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

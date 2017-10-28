@@ -22,7 +22,7 @@ import javax.persistence.Table;
 /**
  * Forder entity. @author MyEclipse Persistence Tools
  */
-@Entity
+@Entity(name = "Forder")
 public class Forder implements java.io.Serializable {
 
     // Fields
@@ -35,10 +35,10 @@ public class Forder implements java.io.Serializable {
     private String phone;
     private String remark;
     private Date date;
-    private BigDecimal total;
+    private Double total;
     private String post;
     private String address;
-    private List<Sorder> sorders = new ArrayList<Sorder>();
+    private Set<Sorder> sorders = new HashSet<Sorder>(0);
 
     // Constructors
 
@@ -51,15 +51,15 @@ public class Forder implements java.io.Serializable {
         this.date = date;
     }
 
-    public Forder(List<Sorder> sorders) {
+    public Forder(Set<Sorder> sorders) {
         super();
         this.sorders = sorders;
     }
 
     /** full constructor */
     public Forder(User user, Status status, String name, String phone,
-            String remark, Date date, BigDecimal total, String post,
-            String address, List<Sorder> sorders) {
+            String remark, Date date, Double total, String post,
+            String address, Set<Sorder> sorders) {
         this.user = user;
         this.status = status;
         this.name = name;
@@ -131,7 +131,7 @@ public class Forder implements java.io.Serializable {
         this.remark = remark;
     }
 
-    @Column(name = "date", nullable = true, length = 19)
+    @Column(name = "date", nullable = false, length = 19)
     public Date getDate() {
         return this.date;
     }
@@ -141,11 +141,11 @@ public class Forder implements java.io.Serializable {
     }
 
     @Column(name = "total", precision = 8)
-    public BigDecimal getTotal() {
+    public Double getTotal() {
         return this.total;
     }
 
-    public void setTotal(BigDecimal total) {
+    public void setTotal(Double total) {
         this.total = total;
     }
 
@@ -168,11 +168,11 @@ public class Forder implements java.io.Serializable {
     }
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "forder")
-    public List<Sorder> getSorders() {
+    public Set<Sorder> getSorders() {
         return this.sorders;
     }
 
-    public void setSorders(List<Sorder> sorders) {
+    public void setSorders(Set<Sorder> sorders) {
         this.sorders = sorders;
     }
 
