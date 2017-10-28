@@ -26,6 +26,7 @@
     
         <global-results>
             <result name="aindex">/WEB-INF/main/aindex.jsp</result>
+            <result name="index">/index.jsp</result>
         </global-results>
         
         <action name="account_*" class="accountAction" method="{1}">

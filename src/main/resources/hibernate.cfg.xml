@@ -28,9 +28,14 @@
         <mapping class="com.shop.model.Category" />
         <mapping class="com.shop.model.Account" />
         <mapping class="com.shop.model.Product" />
+        <mapping class="com.shop.model.User" />
+        <mapping class="com.shop.model.Status" />
+        <mapping class="com.shop.model.Forder" />
+        <mapping class="com.shop.model.Sorder" />
         
         <!-- 配置那些累支持缓存，我们用于首页的热门商品展示，所以Product类支持缓存 -->
-        <class-cache usage="read-only" class="com.shop.model.Product"/>
+        <!-- <class-cache usage="read-only" class="com.shop.model.Product"/> -->
+        <class-cache usage="read-write" class="com.shop.model.Product"/>
 
     </session-factory>
 
