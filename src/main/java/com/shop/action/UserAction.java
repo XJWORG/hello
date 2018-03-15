@@ -17,7 +17,7 @@ public class UserAction extends BaseAction<User> {
         } else {
             //登录成功，先将用户存储到session中
             session.put("user", model);
-            return "index";
+            return "ok";
         }
     }
 }

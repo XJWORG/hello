@@ -6,7 +6,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.shop.model.Category;
 import com.shop.service.CategoryService;
-import com.shop.service.impl.CategoryServiceImpl;
 
 import javax.annotation.Resource;
 import org.junit.Test;
@@ -28,7 +27,7 @@ public class SSHTest {
         System.out.println(date);  
     } 
     
-    @Test
+/*    @Test
     public void hibernate(){
         System.out.println("insert cecore");
     	CategoryService categoryService = new CategoryServiceImpl();
@@ -36,7 +35,7 @@ public class SSHTest {
     	categoryService.save(category);
         System.out.println("insert cecore2");
     }
-
+*/
     @Test //测试Hibernate和Spring整合后
     public void hibernateAndSpring() {
         categoryService.update(new Category(1, "休闲女式", true));
