@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <c:set value="${pageContext.request.contextPath }" var="shop" />
-<title>易购商城</title>
+<title>任务管理平台</title>
 <!-- 
 <script type="text/javascript" src=""></script>
 <style type="text/css"></style>
