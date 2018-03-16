@@ -20,6 +20,7 @@ import com.shop.service.CategoryService;
 import com.shop.service.FileUpload;
 import com.shop.service.ForderService;
 import com.shop.service.ProductService;
+import com.shop.service.ProjectService;
 import com.shop.service.SorderService;
 import com.shop.service.UserService;
 
@@ -33,6 +34,7 @@ public class BaseAction<T> extends ActionSupport implements RequestAware, Sessio
     //page 和rows和分页有关，pageMap存放查询的数据，然后达成json格式使用
     protected Integer page;
     protected String ids;
+    protected String sids;
     protected InputStream inputStream;		
     protected List<T> jsonList = null;
 
@@ -46,6 +48,8 @@ public class BaseAction<T> extends ActionSupport implements RequestAware, Sessio
     protected AccountService accountService;
     @Resource
     protected ProductService productService;
+    @Resource
+    protected ProjectService projectService;
     @Resource
     protected ForderService forderService;
     
@@ -84,6 +88,13 @@ public class BaseAction<T> extends ActionSupport implements RequestAware, Sessio
 	public void setIds(String ids) {
 		this.ids = ids;
 	}
+    public String getSids() {
+        return sids;
+    }
+
+    public void setSids(String sids) {
+        this.sids = sids;
+    }
 
 	public InputStream getInputStream() {
 		return inputStream;
