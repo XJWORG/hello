@@ -32,7 +32,7 @@ public class ProjectServiceImpl extends BaseServiceImpl<Project> implements Proj
 	@Override
 	public List<Project> queryAll(Integer page , Integer size) {
 		String hql = "from t_project_list p";
-		return getSession().createQuery(hql).setFirstResult(0).setMaxResults(4).list();
+		return getSession().createQuery(hql).setFirstResult((page-1)*size).setMaxResults(size).list();
 	}
 
 
