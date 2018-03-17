@@ -27,7 +27,7 @@ public class ProjectAction extends BaseAction<Project> {
         return "jsonMap";
     }
     
-    public String deleteByIds(){
+    public String deleteBySids(){
         projectService.deleteBySids(sids);
         inputStream = new ByteArrayInputStream("true".getBytes()); //将true字节存到流inputStream中
         return "stream";

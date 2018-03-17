@@ -21,7 +21,7 @@
                 //url:'datagrid_data.json',
                 url:'project_queryAll.action',
                 loadMsg:'Loading......',
-                queryParams:{name:''},//参数
+                queryParams:null ,//参数
                 //width:300,
                 fitColumns:true,//水平自动展开，如果设置此属性，则不会有水平滚动条，演示冻结列时，该参数不要设置
                 //显示斑马线
@@ -46,12 +46,12 @@
                 			title: "添加项目",
                 			width: 350,
                 			heiht: 150,
-                			content:'<iframe src="send_product_save.action" frameborder="0" width="100%" height="100%" />'
+                			content:'<iframe src="send_project_save.action" frameborder="0" width="100%" height="100%" />'
                 		});
                 	}
                 } , '-' , {
                 	iconCls: "icon-edit",
-                	text: "更新商品",
+                	text: "更新项目",
                 	handler: function(){
                 		//判断是否有选中行记录，使用getSelections获取选中的所有行
                 		var rows = $("#dg").datagrid("getSelections");
@@ -73,16 +73,16 @@
                 		} else {
                 			//1.弹出更新的弹框
                 			parent.$('#win').window({
-                				title: '更新商品',
+                				title: '更新项目',
                 				width: 350 ,
                 				height: 250,
-                				content: '<iframe src="send_product_update.action" frameborder="0" width="100%" height="100%" />',
+                				content: '<iframe src="send_project_update.action" frameborder="0" width="100%" height="100%" />',
                 			});
                 		}
                 	}
                 } ,'-' , {
                 	iconCls: 'icon-remove',
-                	text: '删除商品',
+                	text: '删除项目',
                 	handler: function(){
                 		//判断是否有选中行，使用getSelections获知选中行
                 		var rows = $('#dg').datagrid('getSelections');
@@ -99,11 +99,11 @@
                 					//1.从获取的记录中获取响应的id，拼接id的值，然后发送给后台
                 					var ids = '';
                 					for(var i=0;i<rows.length;i++){
-                						ids += rows[i].id +",";
+                						ids += rows[i].sid +",";
                 					}
                 					ids = ids.substr(0,ids.lastIndexOf(','));
                 					//2,发送ajax请求
-                					$.post('product_deleteByIds.action', {ids:ids}, function(result){
+                					$.post('project_deleteBySids.action', {sids:ids}, function(result){
                 						if(result == "true"){
                 							$('#dg').datagrid("uncheckAll");
                 							$('#dg').datagrid('reload');

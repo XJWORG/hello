@@ -77,12 +77,20 @@ public class Project implements java.io.Serializable {
 	}
 
 	@Column(name = "active", length = 2)
-	public Integer getActive() {
-		return this.active;
+	public Boolean getActive() {
+	    if(this.active==1)
+	    {
+	        return true ;
+	    }
+	    return false;
 	}
 
-	public void setActive(Integer active) {
-		this.active = active;
+	public void setActive(Boolean bactive) {
+	    if(bactive == true) {
+	        this.active = 1;
+	    }else{
+	        this.active = 0;
+	    }
 	}
 
 	@Column(name = "common")
