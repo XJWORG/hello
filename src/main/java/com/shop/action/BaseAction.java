@@ -22,6 +22,7 @@ import com.shop.service.ForderService;
 import com.shop.service.ProductService;
 import com.shop.service.ProjectService;
 import com.shop.service.SorderService;
+import com.shop.service.TaskService;
 import com.shop.service.UserService;
 
 @Controller("baseAction")
@@ -58,6 +59,8 @@ public class BaseAction<T> extends ActionSupport implements RequestAware, Sessio
     
     @Resource
     protected UserService userService;
+    @Resource
+    protected TaskService taskService;
 
     //封装了图片信息的类
     protected FileImage fileImage;

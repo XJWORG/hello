@@ -33,6 +33,7 @@
         <mapping class="com.shop.model.Forder" />
         <mapping class="com.shop.model.Sorder" />
         <mapping class="com.shop.model.Project" />
+        <mapping class="com.shop.model.Task" />
         
         <!-- 配置那些累支持缓存，我们用于首页的热门商品展示，所以Product类支持缓存 -->
         <!-- <class-cache usage="read-only" class="com.shop.model.Product"/> -->

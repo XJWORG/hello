@@ -113,6 +113,26 @@
             </result>
         </action>
         
+        <!-- 修改类名为spring管理的action的id  -->
+        <action name="task_*" class="taskAction" method="{1}">
+        
+            <result name="jsonMap" type="json">
+                <!-- 转换成Json对象格式 -->
+                <param name="root">pageMap</param>
+                <!-- 配置黑名单，过滤不需要的选项 ，支持正则表达式  
+                json格式：{total:3,rows:[{account:{id:2,login:"user",name:"客服A",pass:"user"},hot:true,id:3,…}]}  
+                -->
+                <!-- rows[0].account.pass-->  
+           <!--      <param name="excludeProperties">
+                    rows\[\d+\]\.category\.account 博主说不这样注释，会出现懒加载问题
+                </param> -->
+            </result>
+            
+            <result name="stream" type="stream">
+                <param name="inputName">inputStream</param>
+            </result>
+        </action>
+        
         <action name="sorder_*" class="sorderAction" method="{1}">
             <result name="showCart">/user/showCart.jsp</result>
         </action>

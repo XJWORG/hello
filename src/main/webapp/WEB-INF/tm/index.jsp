@@ -66,8 +66,8 @@
                 <div title="其他操作">
                    <ul>  
                        <li><a href="#" title="send_project_query.action">项目管理</a>  
-                       <li><a href="#">版本管理</a>  
-                       <li><a href="#">任务管理</a>  
+                       <li><a href="#" title="send_version_query.action">xx管理</a>  
+                       <li><a href="#" title="send_task_query.action">任务管理</a>  
                    </ul> 
                 </div>   
             </div>   
